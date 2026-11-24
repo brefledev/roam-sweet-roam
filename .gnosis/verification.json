@@ -1,0 +1,48 @@
+{
+  "requiredPaths": [
+    "README.md",
+    "SPEC.md",
+    "SETUP.md",
+    "VERIFICATION.md",
+    "LICENSE",
+    "templates/AGENT.md",
+    "templates/LAUNCH-GUIDE.md",
+    "examples/bob/AGENT.md",
+    "examples/bob/skills/cite-sources/SKILL.md",
+    "tests/verify_package.py",
+    "tests/test_verify_package.py",
+    "surfaces/claude-code.md",
+    "surfaces/codex.md",
+    "surfaces/cursor.md",
+    "surfaces/grok.md",
+    "surfaces/hermes.md",
+    "surfaces/t3-code.md"
+  ],
+  "commands": [
+    [
+      "python",
+      "-B",
+      "tests/verify_package.py"
+    ],
+    [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  ],
+  "scope": "Package completeness, guide links and missing-guide refusal; native installation and runtime enforcement require separate checks.",
+  "hosted": {
+    "workflow": "verification.yml",
+    "jobs": [
+      "package-integrity"
+    ],
+    "steps": [
+      "Verify package and failure detection"
+    ]
+  }
+}
